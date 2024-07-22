@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .content__title {
+            color: red;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed grey;
+        }
+
+        .content__homepage-btn {
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            border: none;
+            width: 150px;
+            font-size: 1em;
+            padding: 7px;
+            font-weight: bolder;
+            background-color: orange;
+            transition: .2s;
+            border-radius: 5px;
+        }
+
+        .content__homepage-btn:hover {
+            background-color: white;
+            color: red;
+            transform: translateY(-2px);
+        }
+
+        .content__homepage-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1 class="content__title">404: Sayfa Bulunamadı!</h1>
+        <p>Aradğınız sayfa bulunmamaktadır. Lütfen doğru bir url adresi girdiğinize emin olunuz.</p>
+        <button id="homepageBtn" class="content__homepage-btn">Anasayfa</button>
+    </div>
+
+    <script>
+        const homepageBtn = document.getElementById("homepageBtn");
+        homepageBtn.onclick = () => location.href = "/";
+    </script>
+</body>
+
+</html>

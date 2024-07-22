@@ -1,0 +1,24 @@
+{
+  "name": "todo-list-app",
+  "version": "1.0.0",
+  "description": "To-Do List App",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ahmet Ekmel Yeşilyurt",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "handlebars": "^4.7.8",
+    "mssql": "^11.0.1",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

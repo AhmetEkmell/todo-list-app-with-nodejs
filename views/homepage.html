@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa | ToDo List App</title>
+
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: black;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .mb-10 {
+            margin-bottom: 10px;
+        }
+
+        .content {
+            background-color: rgb(71, 71, 71);
+            max-width: 600px;
+            border: 1px solid orange;
+            padding: 50px;
+            border-radius: 7px;
+            text-align: center;
+        }
+
+        .content__title {
+            font-size: 40px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .content__paragraph {
+            margin: 0;
+            font-size: 12px;
+            color: #ddd;
+        }
+
+        .content__login-btn {
+            font-family: 'Courier New', Courier, monospace;
+            width: 150px;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: orange;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            font-weight: bolder;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .content__login-btn:hover {
+            background-color: white;
+            color: red;
+            transform: translateY(-2px);
+        }
+
+        .content__login-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1 class="content__title mb-10">Hoş Geldiniz!</h1>
+        <p class="content__paragraph mb-10">Uygulamaya devam etmek için giriş yapınız.</p>
+        <button id="loginBtn" class="content__login-btn">Giriş Yap</button>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById("loginBtn");
+        loginBtn.onclick = () => location.href = "/todolist";
+    </script>
+</body>
+
+</html>
