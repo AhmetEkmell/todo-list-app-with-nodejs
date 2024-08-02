@@ -1,34 +1,26 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const path = require("path");
 const sql = require("mssql");
 
-const rootDir = require("./util/path");
-const taskRoutes = require("./routes/tasks");
-const pageRoutes = require("./routes/pages");
-
-const PORT = 8083;
+const dbConfig = require("./app/config/db.config");
+const taskRoutes = require("./app/routes/tasks");
+const pageRoutes = require("./app/routes/pages");
 
 const app = express();
 
+app.use(cors());
 app.set("view engine", "ejs");
-app.set("views", "views");
+app.set("views", "./app/views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
-
-const dbConfig = {
-  user: "sa",
-  password: "1234",
-  server: "DESKTOP-9M5DJQ9",
-  database: "ToDoListDB",
-  options: {
-    encrypt: false,
-  },
-};
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 sql
-  .connect(dbConfig)
+  .connect(dbConfig.sql)
   .then(() => {
     console.log("Veri Tabanı Bağlantısı Başarılı!");
   })
@@ -40,10 +32,9 @@ app.use("/tasks", taskRoutes.router);
 app.use("/", pageRoutes);
 
 app.use((req, res, next) => {
-  // res.status(404).sendFile(path.join(rootDir, "views", "404.html"));
   res.status(404).render("404", { pageTitle: "Sayfa Bulunamadı!" });
 });
 
-app.listen(PORT, () => {
-  console.log(`API Çalışıyor.. => http://localhost:${PORT}`);
+app.listen(dbConfig.port, () => {
+  console.log(`API Çalışıyor.. => http://${dbConfig.host}:${dbConfig.port}`);
 });
